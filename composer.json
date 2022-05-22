@@ -1,0 +1,17 @@
+{
+    "name": "andresdevr/administratix",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Andresdevr\\Administratix\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "andresdevr",
+            "email": "andres22.dev@gmail.com"
+        }
+    ],
+    "require": {}
+}
