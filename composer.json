@@ -13,5 +13,17 @@
             "email": "andres22.dev@gmail.com"
         }
     ],
-    "require": {}
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Andresdevr\\Administratix\\AdministratixServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.5"
+    },
+    "require": {
+        "livewire/livewire": "^2.10"
+    }
 }
