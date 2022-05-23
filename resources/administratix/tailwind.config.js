@@ -13,10 +13,7 @@ module.exports = {
         background: {
             light: colors.slate['50'],
             DEFAULT: colors.slate['50'],
-            dark: colors['800'].
-        },
-        text: {
-
+            dark: colors['800'],
         },
         primary: "--color-primary",
         secondary: "--color-secondary",
