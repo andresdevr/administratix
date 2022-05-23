@@ -8,6 +8,8 @@ use Livewire\Livewire;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use Illuminate\View\View as ViewFactory;
+use Illuminate\Support\Str;
 
 
 abstract class ServiceProvider extends Base
@@ -101,6 +103,29 @@ abstract class ServiceProvider extends Base
         foreach($middlewareGroups as $group => $middlewares)
         {
             $this->app['router']->middlewareGroup($group, $middlewares);
+        }
+    }
+
+    /**
+     * Register the components views via variable helpers
+     *
+     * @param  array $components
+     * @return void
+     */
+    public function componentVariables(array $components, $prefix = '')
+    {
+        foreach($components as $name => $component)
+        {
+            if(is_array($component))
+            {
+                $this->componentVariables($component, $prefix . ucfirst($name));
+            }
+            else
+            {
+                View::composer('*', function(ViewFactory $view) use ($prefix, $name, $component) {
+                    $view->with((string) Str::of($name)->ucfirst()->start($prefix)->start("component"), $component);
+                });
+            }
         }
     }
 }
