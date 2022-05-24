@@ -60,7 +60,10 @@ abstract class ServiceProvider extends Base
     {
         foreach(File::allFiles($folder) as $file)
         {
-            $this->mergeConfigFrom($file->getPathname(), $file->getFilenameWithoutExtension());
+            $this->mergeConfigFrom(
+                (string) Str::of($file->getPathname()), 
+                (string) Str::of($file->getRelativePathname())->beforeLast('.')->replace('/', '.')
+            );
         }
     }
 
@@ -112,7 +115,7 @@ abstract class ServiceProvider extends Base
      * @param  array $components
      * @return void
      */
-    public function componentVariables(array $components, $prefix = '')
+    protected function componentVariables(array $components, $prefix = '')
     {
         foreach($components as $name => $component)
         {
@@ -127,5 +130,29 @@ abstract class ServiceProvider extends Base
                 });
             }
         }
+    }
+
+    /**
+     * Register singletons
+     * 
+     * @param  array|mixed $singletons
+     * @return void
+     */
+    protected function registerSingletons($singletons)
+    {
+        foreach($singletons as $abstract => $concrete)
+            $this->app->singleton($abstract, $concrete);
+    }
+
+    /**
+     * Register binds
+     * 
+     * @param  array|mixed $binds
+     * @return void
+     */
+    protected function registerBinds($binds)
+    {
+        foreach($binds as $abstract => $concrete)
+            $this->app->bind($abstract, $concrete);
     }
 }
