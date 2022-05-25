@@ -3,10 +3,13 @@
 
 namespace Andresdevr\Administratix\Console;
 
+use Andresdevr\Administratix\Concerns\FileActions;
 use Illuminate\Console\Command;
 
 class Installer extends Command
 {
+    use FileActions;
+
     /**
      * The name and signature of the console command.
      *
@@ -28,7 +31,16 @@ class Installer extends Command
      */
     public function handle()
     {
-        
-        
+        $this->copyResources();
+    }
+
+    /**
+     * Copy the resources
+     * 
+     * @return void
+     */
+    public function copyResources()
+    {
+        $this->copyDirectory(__DIR__ . '/../../resources/administratix', resource_path(''));
     }
 }

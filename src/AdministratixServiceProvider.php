@@ -39,6 +39,8 @@ class AdministratixServiceProvider extends ServiceProvider
     public function register()
     {
         $this->configurations(__DIR__ . "/../config");
+        $this->registerSingletons($this->singletons());
+        $this->registerBinds($this->binds());
     }
 
     /**
@@ -48,8 +50,14 @@ class AdministratixServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerSingletons($this->singletons());
-        $this->registerBinds($this->binds());
+
+        if($this->app->runningInConsole()) {
+            $this->commands($this->app->config['administratix.commands']);
+        }
+
+        $this->views(__DIR__ . '/../resources/views');
+        $this->views($this->app->config['administratix.views.paths']);
     }
+
 
 }

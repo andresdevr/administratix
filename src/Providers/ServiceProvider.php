@@ -155,4 +155,17 @@ abstract class ServiceProvider extends Base
         foreach($binds as $abstract => $concrete)
             $this->app->bind($abstract, $concrete);
     }
+
+
+    /**
+     * Register the views
+     * 
+     * @param  array|mixed $paths
+     * @param  string $prefix
+     */
+    protected function views($paths, $prefix = null)
+    {
+        foreach(Arr::wrap($paths) as $namespace => $path)
+            $this->loadViewsFrom($path, is_null($prefix) ? $namespace : $prefix);
+    }
 }

@@ -7,5 +7,5 @@ mix.js('resources/admin/js/app.js', 'public/js/administratix.js')
         postCss: [ 
             tailwindcss('./tailwind.config.js') 
         ],
-    })
+    }) 
     .version();
