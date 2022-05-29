@@ -105,7 +105,7 @@ trait FileActions
     private function startClock($action, $file)
     {
         method_exists($this, 'getOutput') ?
-            $this->writeln("<comment>{$action}:</comment>  {$file}") :
+            $this->getOutput()->writeln("<comment>{$action}:</comment>  {$file}") :
             ConsoleOutput::writeln("<comment>{$action}:</comment>  {$file}");
 
         $this->clock[$file] = microtime(true);
@@ -121,7 +121,7 @@ trait FileActions
         $runTime = number_format((microtime(true) - $this->clock[$file]) * 1000, 2);
 
         method_exists($this, 'getOutput') ?
-            $this->writeln("<info>{$action}:</info>   {$file} ({$runTime}ms)") :
+            $this->getOutput()->writeln("<info>{$action}:</info>   {$file} ({$runTime}ms)") :
             ConsoleOutput::writeln("<info>{$action}:</info>   {$file} ({$runTime}ms)");
     }
 

@@ -162,10 +162,26 @@ abstract class ServiceProvider extends Base
      * 
      * @param  array|mixed $paths
      * @param  string $prefix
+     * @return void
      */
     protected function views($paths, $prefix = null)
     {
         foreach(Arr::wrap($paths) as $namespace => $path)
             $this->loadViewsFrom($path, is_null($prefix) ? $namespace : $prefix);
+    }
+
+    /**
+     * Register the global composers
+     * 
+     * @param  array|mixed $composers
+     * @param  string $view
+     * @return void
+     */
+    protected function composers($composers, $view = '*')
+    {
+        foreach(Arr::wrap($composers) as $composer)
+            View::composer(
+                is_array($composer) ? $composer['view'] : $view,
+                is_array($composer) ? $composer['composer'] : $composer);
     }
 }
