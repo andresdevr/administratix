@@ -12,17 +12,14 @@
         @stack('styles')
     </head>
     <body>
+        <x-dynamic-component :component="config('administratix.views.layouts.admin.components.sidebar')" />
         <x-dynamic-component :component="config('administratix.views.layouts.admin.components.navbar.index')" />
-
-        <div class="flex">
-            <x-dynamic-component :component="config('administratix.views.layouts.admin.components.sidebar')" />
-            <main class="w-full">    
-                <div class="main-content">
-                    {{ $slot }}
-                </div>
-                <x-dynamic-component :component="config('administratix.views.layouts.admin.components.footer')" />
-            </main>
-        </div>
+        <main class="w-full ml-256 mt-56">    
+            <div class="main-content">
+                {{ $slot }}
+            </div>
+            <x-dynamic-component :component="config('administratix.views.layouts.admin.components.footer')" />
+        </main>
         
         @livewireScripts
         @yield('scripts')

@@ -4,7 +4,7 @@
 return [
     'prefix' => 'admin',
     'paths' => [
-        'admin' => 'views/admin',
+        // 'admin' => 'views/admin',
         // add more paths here
     ]
 ];

@@ -21,13 +21,11 @@ module.exports = {
                 success: "var(--color-sucess)",
                 info: "var(--color-info)",
                 alert: "var(--color-alert)"
-            }
-        },
-        width: {
-            '256': '16rem' 
-        },
-        height: {
-            '56': '3.5rem'
+            },
+            spacing: {
+                '256': '16rem',
+                '56': '3.5rem'
+            },
         },
         screens: {
             'sm': '640px',
