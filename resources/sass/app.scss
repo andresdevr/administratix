@@ -1,6 +1,4 @@
 @import "variables";
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "components/**/*";
-
+@import "tailwindcss";
+@import "global";
+@import "components/icon/awesome/fontawesome";

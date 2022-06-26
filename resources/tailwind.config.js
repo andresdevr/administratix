@@ -5,7 +5,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
-        './resources/**/*.vue',
+        './resources/**/*.vue'
     ],
     theme: {
         extend: {
@@ -22,6 +22,12 @@ module.exports = {
                 info: "var(--color-info)",
                 alert: "var(--color-alert)"
             }
+        },
+        width: {
+            '256': '16rem' 
+        },
+        height: {
+            '56': '3.5rem'
         },
         screens: {
             'sm': '640px',

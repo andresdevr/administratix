@@ -43,6 +43,7 @@ class Installer extends Command
     {
         $this->copyDirectory(__DIR__ . '/../../resources/sass', resource_path('administratix/sass'));
         $this->copyDirectory(__DIR__ . '/../../resources/js', resource_path('administratix/js'));
+        $this->copyDirectory(__DIR__ . '/../../resources/images', resource_path('administratix/images'));
         $this->replaceFile(__DIR__ . '/../../resources/tailwind.config.js', base_path('tailwind.config.js'));
         $this->replaceFile(__DIR__ . '/../../resources/webpack.mix.js', base_path('webpack.mix.js'));
     }

@@ -55,7 +55,7 @@ class AdministratixServiceProvider extends ServiceProvider
             $this->commands($this->app->config['administratix.commands']);
         }
 
-        $this->views(__DIR__ . '/../resources/views');
+        $this->views(__DIR__ . '/../resources/views', $this->app->config['administratix.views.prefix']);
         $this->views($this->app->config['administratix.views.paths']);
         $this->composers($this->app->config['administratix.views.composers']);
     }

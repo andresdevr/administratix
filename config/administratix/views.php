@@ -2,8 +2,9 @@
 
 
 return [
-    'prefix' => 'admin::',
+    'prefix' => 'admin',
     'paths' => [
-        
+        'admin' => 'views/admin',
+        // add more paths here
     ]
 ];

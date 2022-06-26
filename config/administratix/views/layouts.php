@@ -2,12 +2,16 @@
 
 return [
     'admin' => [
-        'auth' => config('administratix.views.prefix') . 'layouts.auth',
-        'guest' => config('administratix.views.prefix') . 'layouts.guest',
+        'auth' =>  'admin::layouts.auth',
+        'guest' => 'admin::layouts.guest',
         'components' => [
-            'navbar' => '',
-            'sidebar' => '',
-            'footer' => ''
+            
+            'navbar' => [
+                'index' => 'admin::layouts.components.navbar',
+                'logo' => 'admin::layouts.components.navbar.logo'
+            ],
+            'sidebar' => 'admin::layouts.components.sidebar',
+            'footer' => 'admin::layouts.components.footer',
         ]
     ]
 ];
