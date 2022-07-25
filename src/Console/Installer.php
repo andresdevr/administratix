@@ -48,6 +48,7 @@ class Installer extends Command
         $this->replaceFile(__DIR__ . '/../../resources/tailwind.config.js', base_path('tailwind.config.js'));
         $this->replaceFile(__DIR__ . '/../../resources/vite.config.js', base_path('vite.config.js'));
         $this->replaceFile(__DIR__ . '/../../resources/package.json', base_path('package.json'));
+        $this->replaceFile(__DIR__ . '/../../resources/postcss.config.js', base_path('postcss.config.js'));
     }
 
     /**
