@@ -4,7 +4,8 @@
 return [
     'prefix' => 'admin',
     'paths' => [
-        // 'admin' => 'views/admin',
+        'admin' => resource_path('admin/views'), // make admin::your-view-name
+        // 'web'   => 'web/views'
         // add more paths here
     ]
 ];

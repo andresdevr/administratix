@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         
-        <link href="{{ asset(mix('administratix/css/app.css')) }}" rel="stylesheet" />
+        @vite('resources/admin/sass/app.scss') 
         @livewireStyles
 
         @yield('styles')
@@ -21,6 +21,7 @@
             <x-dynamic-component :component="config('administratix.views.layouts.admin.components.footer')" />
         </main>
         
+        @vite('resources/admin/js/app.js')
         @livewireScripts
         @yield('scripts')
         @stack('scripts')

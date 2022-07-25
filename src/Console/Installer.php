@@ -32,6 +32,7 @@ class Installer extends Command
     public function handle()
     {
         $this->copyResources();
+        $this->removeResources();
     }
 
     /**
@@ -41,10 +42,23 @@ class Installer extends Command
      */
     public function copyResources()
     {
-        $this->copyDirectory(__DIR__ . '/../../resources/sass', resource_path('administratix/sass'));
-        $this->copyDirectory(__DIR__ . '/../../resources/js', resource_path('administratix/js'));
-        $this->copyDirectory(__DIR__ . '/../../resources/images', resource_path('administratix/images'));
+        $this->copyDirectory(__DIR__ . '/../../resources/sass', resource_path('admin/sass'));
+        $this->copyDirectory(__DIR__ . '/../../resources/js', resource_path('admin/js'));
+        $this->copyDirectory(__DIR__ . '/../../resources/images', resource_path('admin/images'));
         $this->replaceFile(__DIR__ . '/../../resources/tailwind.config.js', base_path('tailwind.config.js'));
-        $this->replaceFile(__DIR__ . '/../../resources/webpack.mix.js', base_path('webpack.mix.js'));
+        $this->replaceFile(__DIR__ . '/../../resources/vite.config.js', base_path('vite.config.js'));
+        $this->replaceFile(__DIR__ . '/../../resources/package.json', base_path('package.json'));
+    }
+
+    /**
+     * Remove all the old resources
+     * 
+     * @return void
+     */
+    public function removeResources()
+    {
+        $this->deleteDirectory(resource_path('css'));
+        $this->deleteDirectory(resource_path('js'));
+        $this->deleteDirectory(resource_path('views'));
     }
 }

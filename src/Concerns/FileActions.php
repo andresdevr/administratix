@@ -96,6 +96,22 @@ trait FileActions
     }
 
     /**
+     * Delete a directory
+     * 
+     * @param string $folderpathname
+     * @param bool $reportIfNotExists
+     */
+    public function deleteDirectory($folderpathname, $reportIfNotExists = true)
+    {
+        $this->startClock("Deleting", $folderpathname);
+
+        if($this->fileExists($folderpathname, $reportIfNotExists))
+            File::deleteDirectory($folderpathname);
+
+        $this->endClock("Deleted", $folderpathname);
+    }
+
+    /**
      * Start the commnand
      * 
      * @param  string $action
