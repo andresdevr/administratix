@@ -14,8 +14,8 @@
     <body>
         <x-dynamic-component :component="config('administratix.views.layouts.admin.components.sidebar')" />
         <x-dynamic-component :component="config('administratix.views.layouts.admin.components.navbar.index')" />
-        <main class="w-full pl-256 pt-56 min-h-screen bg-background-general">    
-            <div class="main-content min-h-full">
+        <main class="w-full pl-256 pt-56 min-h-screen bg-background-general flex flex-col">    
+            <div class="main-content flex-auto">
                 {{ $slot }}
             </div>
             <x-dynamic-component :component="config('administratix.views.layouts.admin.components.footer')" />
