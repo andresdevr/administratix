@@ -10,7 +10,12 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                background: {
+                'background-general': {
+                    light: colors.slate['200'],
+                    DEFAULT: colors.slate['200'],
+                    dark: colors.slate['800'],
+                },
+                'background-secondary': {
                     light: colors.slate['50'],
                     DEFAULT: colors.slate['50'],
                     dark: colors.slate['800'],
